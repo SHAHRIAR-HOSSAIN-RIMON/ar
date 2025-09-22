@@ -2,25 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <title>Hackathon AR — Flask + AR.js</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Hackathon AR</title>
 
-  <!-- A-Frame -->
+  <!-- A-Frame + AR.js -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <!-- AR.js -->
   <script src="https://unpkg.com/AR.js@3.4.2/aframe/build/aframe-ar.js"></script>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <div id="ui">Point camera at the Hiro marker!</div>
+  <div id="ui">
+    Point your camera at the Hiro marker.<br>
+    👉 <a href="{{ url_for('static', filename='hiro.png') }}" target="_blank" style="color:#FFD700;">Open marker</a>
+  </div>
 
-  <a-scene
-    embedded
-    arjs="sourceType: webcam; debugUIEnabled: false;"
-    vr-mode-ui="enabled: false"
-  >
-    <!-- Marker -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
     <a-marker preset="hiro">
       <a-box position="0 0.5 0" color="tomato"
              animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
